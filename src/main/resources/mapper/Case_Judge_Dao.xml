@@ -1,0 +1,20 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dangde.dao.third.Case_Judge_Dao">
+
+
+
+     <insert id="insertCase_Judge">
+         insert into case_judge(case_id,judge_id)
+        	values (#{case_id}, #{judge_id})      
+        
+     </insert>
+     
+<!--      <insert id="updateCase_judge">
+     
+         UPDATE  Case_judge
+          SET judge_id= #{judge_id}
+           WHERE Case_id= #{Case_id}      
+     </insert> -->
+</mapper>

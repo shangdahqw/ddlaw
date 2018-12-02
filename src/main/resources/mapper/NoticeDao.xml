@@ -1,0 +1,34 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dangde.dao.NoticeDao">
+
+     <insert id="insert_Notice" parameterType="Notice">
+         insert into notice(material_id,type,create_time,flag,content,case_id,operation_id,user_id,casesummery)
+        	values (#{material_id},#{type},#{create_time},#{flag},#{content},#{case_id},#{operation_id},#{user_id},#{casesummery})            
+     </insert>
+     
+<!--      <select id="findAll" resultType="Notice">
+     	SELECT * FROM notice n
+     		INNER JOIN user_material um
+     		on n.material_id=um.material_id
+     		where um.user_id=#{userId} and n.flag=0
+     </select>  --> 
+     
+     <select id="findAll" resultType="Notice">
+     	SELECT * FROM notice where user_id=#{userId} and flag=0 order by create_time desc
+     </select>  
+ 
+     <select id="findAllshenhe" resultType="Notice">
+     	SELECT * FROM notice where user_id=#{userId} and type=1 and flag=0 order by create_time desc
+     </select> 
+           
+	<update id="updateById"	parameterType="Long">
+		update notice 
+			set flag=1
+				where id=#{id};	
+	</update>     
+      
+     
+     
+</mapper>

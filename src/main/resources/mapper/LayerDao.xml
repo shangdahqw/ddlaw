@@ -1,0 +1,35 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dangde.dao.LayerDao">
+<!--     目的:为dao接口方法提供sql语句配置
+    即针对dao接口中的方法编写我们的sql语句 -->
+
+
+     <insert id="insertLayer" parameterType="Layer">
+         insert into layer(name,tel,main,firm,number)
+        	values (#{name},#{tel},#{main},#{firm},#{number})
+               
+     </insert>
+
+     <select id="getmaxkey" resultType="Long">
+        select max(id) from layer
+     </select>
+     
+     <select id="getByCaseId" resultType="Layer">
+     
+            select 
+	            *
+	        from 
+	            layer l 
+	        inner join  
+	            case_layer cy
+	        on	        
+	            l.id=cy.layer_id  
+
+            where cy.case_id = #{caseId}    
+     
+     </select>    
+ 
+     
+</mapper>

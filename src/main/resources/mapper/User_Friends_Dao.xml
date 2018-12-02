@@ -1,0 +1,26 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dangde.dao.third.User_Friends_Dao">
+
+
+
+     <insert id="insertUser_Friend">
+         insert into user_friend(user_id,friend_id)
+        	values (#{user_id}, #{friend_id})      
+        
+     </insert>
+     
+     
+     <!-- 查找好友 -->
+     <select id="findFriends" resultType="User">
+		select uf.friend_id as id ,u.username as username
+		
+			from  user_friend uf 
+			inner join user u on u.id=uf.friend_id
+				where uf.user_id = #{userid}    
+                           
+     </select>
+    
+
+</mapper>
