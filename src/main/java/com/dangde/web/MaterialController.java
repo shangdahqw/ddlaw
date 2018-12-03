@@ -79,12 +79,12 @@ public class MaterialController {
     Map<String, Object> map = new HashMap<String, Object>();
 
     Material material = materialService.getMaterial(material_id);
-    List<XQ_commentVO> xQ_commentVOs = materialService.getCommentXiangQing(material_id);
-    List<XQ_approveVO> xQ_approveVOs = materialService.getApproveXiangQing(material_id);
+    //List<XQ_commentVO> xQ_commentVOs = materialService.getCommentXiangQing(material_id);
+    //List<XQ_approveVO> xQ_approveVOs = materialService.getApproveXiangQing(material_id);
 
     map.put("material", material);
-    map.put("xQ_commentVOs", xQ_commentVOs);
-    map.put("xQ_approveVOs", xQ_approveVOs);
+    //map.put("xQ_commentVOs", xQ_commentVOs);
+    //map.put("xQ_approveVOs", xQ_approveVOs);
 
     if (material.getFile_type() == 0) map.put("ViewName", "detail_picture");
     else if (material.getFile_type() == 1) map.put("ViewName", "detail_document");
