@@ -23,6 +23,4 @@
     默认使用注解来管理事务行为-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-
-
 </beans>

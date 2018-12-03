@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,7 @@ import com.dangde.service.UserService;
 import com.dangde.utils.Constant;
 import com.dangde.utils.JwtUtil;
 import com.dangde.utils.TokenModel;
+
 import com.dangde.responseModle.ResultData;
 
 
@@ -28,7 +30,6 @@ import com.dangde.responseModle.ResultData;
 @Component
 @RequestMapping("/user")
 public class UserController {
-	
     @Autowired
     private RedisDao redisDao;
 	@Autowired
@@ -55,8 +56,6 @@ public class UserController {
 			this.userService.saveUser(user);
 			resultData.setStatus(Constant.REGISTER_SUCCESS);//注册成功
 			resultData.setMessage("注册成功");
-
-
 		} catch (Exception e) {
 			resultData.setStatus(Constant.REGISTER_FAIL);//注册失败
 			resultData.setMessage("注册失败");

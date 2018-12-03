@@ -210,16 +210,18 @@ public class MaterialServiceImpl implements MaterialService {
 
 	@Override
 	public Material getMaterial(Long material_id) {
-						
-		//优化点:缓存优化:超时的基础上维护一致性
-
-        Material material = redisDao.getMaterial(material_id);
-        
-        if (material == null) {
-            //2.访问数据库
-            material = materialDao.getMaterial(material_id);
-            redisDao.putMaterial(material);
-        }
+		
+		//No Redis 版本，获取材料时不用Redis
+		 Material material = materialDao.getMaterial(material_id);
+//		//优化点:缓存优化:超时的基础上维护一致性
+//
+//        Material material = redisDao.getMaterial(material_id);
+//        
+//        if (material == null) {
+//            //2.访问数据库
+//            material = materialDao.getMaterial(material_id);
+//            redisDao.putMaterial(material);
+//        }
         return  material;
 
 	}
