@@ -2,41 +2,36 @@ package com.dangde.utils;
 
 import io.jsonwebtoken.Claims;
 
-/**
- * 验证结果模型
- * @author XY
- *
- */
+/** 验证结果模型 */
 public class CheckResult {
 
-	private int errCode;
-	
-	private boolean success;
-	
-	private Claims claims;
+  private int errCode;
 
-	public int getErrCode() {
-		return errCode;
-	}
+  private boolean success;
 
-	public void setErrCode(int errCode) {
-		this.errCode = errCode;
-	}
+  private Claims claims;
 
-	public boolean isSuccess() {
-		return success;
-	}
+  public int getErrCode() {
+    return errCode;
+  }
 
-	public void setSuccess(boolean success) {
-		this.success = success;
-	}
+  public void setErrCode(int errCode) {
+    this.errCode = errCode;
+  }
 
-	public Claims getClaims() {
-		return claims;
-	}
+  public boolean isSuccess() {
+    return success;
+  }
 
-	public void setClaims(Claims claims) {
-		this.claims = claims;
-	}
-	
+  public void setSuccess(boolean success) {
+    this.success = success;
+  }
+
+  public Claims getClaims() {
+    return claims;
+  }
+
+  public void setClaims(Claims claims) {
+    this.claims = claims;
+  }
 }

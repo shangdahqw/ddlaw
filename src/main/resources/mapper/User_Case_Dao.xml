@@ -3,26 +3,25 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dangde.dao.third.User_Case_Dao">
 
-	<select id="selectCoopidsAndCreateids" resultType="Long">
+    <select id="selectCoopidsAndCreateids" resultType="Long">
 		select user_id from user_case
 			where case_id=#{case_id} and privilege_id=0 or privilege_id=1
 	</select>
-	
-	
-	 <insert id="insertUser_Case">
-		 insert ignore into user_case(user_id,case_id,privilege_id)
-	        	values
-		 <foreach collection="user_ids" item="user_id" separator=",">
-		 	 (#{user_id}, #{case_id}, #{privilege_id}) 		 
-		 </foreach> 
-        
-     </insert>
- 
-	<select id="getprivilege_Id" resultType="int">
+	  
+
+    <insert id="insertUser_Case">
+        insert ignore into user_case(user_id,case_id,privilege_id)
+        values
+        <foreach collection="user_ids" item="user_id" separator=",">
+            (#{user_id}, #{case_id}, #{privilege_id})
+        </foreach>
+
+    </insert>
+
+    <select id="getprivilege_Id" resultType="int">
 		select privilege_id from user_case
 			where case_id=#{caseId} and user_id=#{userId}
-	</select>    
-     
-     
+	</select>
+
 
 </mapper>

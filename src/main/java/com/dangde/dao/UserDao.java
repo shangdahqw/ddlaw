@@ -1,32 +1,25 @@
 package com.dangde.dao;
 
-
-
-
+import com.dangde.domain.User;
 import org.apache.ibatis.annotations.Param;
 
-import com.dangde.domain.User;
-
-
 public interface UserDao {
-	
 
-	
-	public void insertUser(User user);
-	
-	public void deleteUser(Long id);
-	
-	public void updateUser_info(User user);
-	public void updateUser_email(User user);
-	public void updateUser_password(User user);
+  public void insertUser(User user);
 
-	
-	public String getUser_exist_ByTel(@Param("tel")String tel);
+  public void deleteUser(Long id);
 
-	public User getUserById(@Param("user_id")Long user_id);
-	
-	public User getUserByTel_Psw(@Param("tel")String tel,@Param("psw")String psw);
+  public void updateUsernfo(User user);
 
-	public String getUserName(@Param("id")Long id);
+  public void updateUserEmail(User user);
 
+  public void updateUserPassword(User user);
+
+  public String getUserExistByTel(@Param("tel") String tel);
+
+  public User getUserById(@Param("user_id") Long userId);
+
+  public User getUserByTelPsw(@Param("tel") String tel, @Param("psw") String psw);
+
+  public String getUserName(@Param("id") Long id);
 }

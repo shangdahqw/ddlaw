@@ -1,14 +1,13 @@
 package com.dangde.dao;
 
-import java.util.List;
-
+import com.dangde.domain.Comment;
 import org.apache.ibatis.annotations.Param;
 
-import com.dangde.domain.Comment;
+import java.util.List;
 
 public interface CommentDao {
-	
-	public boolean insert_Comment(Comment comment);
-	
-	public List<Comment> getComment(@Param("material_id")Long material_id);
+
+  public boolean insertComment(Comment comment);
+
+  public List<Comment> getComment(@Param("material_id") Long materialId);
 }

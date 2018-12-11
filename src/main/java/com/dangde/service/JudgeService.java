@@ -1,18 +1,10 @@
 package com.dangde.service;
 
+import com.dangde.domain.Judge;
 
 import java.util.List;
 
-import com.dangde.domain.Judge;
-
-
-
-
-
 public interface JudgeService {
 
-
-	public List<Judge> findByCaseId(Long caseId);
-
-
+  public List<Judge> findByCaseId(Long caseId);
 }

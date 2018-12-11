@@ -4,62 +4,61 @@ import java.io.Serializable;
 
 public class ResultData<T> implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    
-    private int status;//返回 0：失败；1：成功
+  private static final long serialVersionUID = 1L;
 
-	private T data;//具体的对象
-	
-	private String token; //返回的token
-	
-	private String message;//错误时消息
+  private int status; // 返回 0：失败；1：成功
 
-	public int getStatus() {
-		return status;
-	}
+  private T data; // 具体的对象
 
-	public void setStatus(int status) {
-		this.status = status;
-	}
+  private String token; // 返回的token
 
-	public T getData() {
-		return data;
-	}
+  private String message; // 错误时消息
 
-	public void setData(T data) {
-		this.data = data;
-	}
-	public String getToken() {
-		return token;
-	}
+  public int getStatus() {
+    return status;
+  }
 
-	public void setToken(String token) {
-		this.token = token;
-	}
+  public void setStatus(int status) {
+    this.status = status;
+  }
 
-	public String getMessage() {
-		return message;
-	}
+  public T getData() {
+    return data;
+  }
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+  public void setData(T data) {
+    this.data = data;
+  }
 
-	@Override
-	public String toString() {
-		return "ResultData [status=" + status + ", data=" + data + ", message="
-				+ message + "]";
-	}
+  public String getToken() {
+    return token;
+  }
 
-	public ResultData() {
-		super();
-	}
+  public void setToken(String token) {
+    this.token = token;
+  }
 
-	public ResultData(int status, T data, String message) {
-		super();
-		this.status = status;
-		this.data = data;
-		this.message = message;
-	}
+  public String getMessage() {
+    return message;
+  }
 
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  @Override
+  public String toString() {
+    return "ResultData [status=" + status + ", data=" + data + ", message=" + message + "]";
+  }
+
+  public ResultData() {
+    super();
+  }
+
+  public ResultData(int status, T data, String message) {
+    super();
+    this.status = status;
+    this.data = data;
+    this.message = message;
+  }
 }

@@ -4,17 +4,9 @@
 <mapper namespace="com.dangde.dao.third.Case_Trusteeopposition_Dao">
 
 
-
-     <insert id="insertCase_Trusteeopposition">
+    <insert id="insertCase_Trusteeopposition">
          insert into case_Trusteeopposition(case_id,trusteeopposition_id)
         	values (#{case_id}, #{trusteeopposition_id})      
         
      </insert>
-     
-<!--      <insert id="updateCase_Trusteeopposition">
-     
-         UPDATE  Case_Trusteeopposition
-          SET Trusteeopposition_id= #{Trusteeopposition_id}
-           WHERE Case_id= #{Case_id}      
-     </insert> -->
 </mapper>

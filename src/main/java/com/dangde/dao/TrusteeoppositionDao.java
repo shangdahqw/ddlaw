@@ -1,19 +1,15 @@
 package com.dangde.dao;
 
-import java.util.List;
-
+import com.dangde.domain.Trusteeopposition;
 import org.apache.ibatis.annotations.Param;
 
-import com.dangde.domain.Trusteeopposition;
+import java.util.List;
 
 public interface TrusteeoppositionDao {
-	
 
-	
-	public void insertTrusteeopposition(Trusteeopposition trusteeopposition);
-	public Long getmaxkey();		
+  public void insertTrusteeopposition(Trusteeopposition trusteeopposition);
 
-	public List<Trusteeopposition> getByCaseId(@Param("caseId")Long caseId);
+  public Long getmaxkey();
 
-
+  public List<Trusteeopposition> getByCaseId(@Param("caseId") Long caseId);
 }

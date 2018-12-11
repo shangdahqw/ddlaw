@@ -2,18 +2,18 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dangde.dao.CommentDao">
-<!--     目的:为dao接口方法提供sql语句配置
-    即针对dao接口中的方法编写我们的sql语句 -->
+    <!--     目的:为dao接口方法提供sql语句配置
+        即针对dao接口中的方法编写我们的sql语句 -->
 
 
-     <insert id="insert_Comment" parameterType="Comment">
+    <insert id="insertComment" parameterType="Comment">
          insert into comment(material_id,user_id,comment,create_time)
         	values (#{material_id},#{user_id},#{comment},#{create_time})            
      </insert>
-     
-     <select id="getComment" resultType="Comment">
+
+    <select id="getComment" resultType="Comment">
      	select * from comment
      		where material_id=#{material_id}
      </select>
-     
+
 </mapper>
