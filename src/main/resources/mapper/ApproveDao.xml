@@ -4,20 +4,19 @@
 <mapper namespace="com.dangde.dao.ApproveDao">
 
 
-
-     <insert id="insertApprove" parameterType="Approve">
+    <insert id="insertApprove" parameterType="Approve">
          insert ignore into approve(material_id,user_id,flag,note,create_time)
-        	values (#{material_id},#{user_id},#{flag},#{note},#{create_time})             
+        	values (#{material_id},#{user_id},#{flag},#{note},#{create_time})
      </insert>
 
-	<update id="updateFlag" parameterType="Approve">
-		update approve 
+    <update id="updateFlag" parameterType="Approve">
+		update approve
 			set flag=#{flag},note=#{note},create_time=#{create_time}
 			where material_id=#{material_id}
 				and user_id=#{user_id}
 	</update>
-	
-	<select id="getApprove" resultType="Approve">
+
+    <select id="getApprove" resultType="Approve">
 		select * from approve
 			where material_id=#{material_id}
 	</select>

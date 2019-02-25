@@ -1,13 +1,10 @@
 package com.dangde.service;
 
-import java.util.List;
-
 import com.dangde.domain.Trusteeopposition;
 
-
+import java.util.List;
 
 public interface TrusteeoppositionService {
 
-	public List<Trusteeopposition> findByCaseId(Long caseId);
-
+  public List<Trusteeopposition> findByCaseId(Long caseId);
 }

@@ -2,10 +2,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dangde.dao.MaterialDao">
-<!--     目的:为dao接口方法提供sql语句配置
-    即针对dao接口中的方法编写我们的sql语句 -->
+    <!--     目的:为dao接口方法提供sql语句配置
+        即针对dao接口中的方法编写我们的sql语句 -->
 
-     <select id="getMaterials" resultType="Material">
+    <select id="getMaterials" resultType="Material">
         select *
         	from material
 			     		where type=#{material_type} 
@@ -13,64 +13,64 @@
 					        	  	order by create_time desc
 					        	  		limit #{startindex},#{pagesize};
      </select>
-     
-     <select id="getMaterial" resultType="Material">
+
+    <select id="getMaterial" resultType="Material">
      	select * from material
      		where id=#{id}
      </select>
-     
-     <insert id="insertMaterial" parameterType="Material">
+
+    <insert id="insertMaterial" parameterType="Material">
      	insert into material(operation_id,user_id,type,create_time,title,introduce,url,flag_output,file_type)
      		values(#{operation_id},#{user_id},#{type},#{create_time},#{title},#{introduce},#{url},#{flag_output},#{file_type})
      </insert>
-     
-     <select id="getmaxid" resultType="Long">
+
+    <select id="getmaxid" resultType="Long">
      	select max(id) from material
      </select>
-     
-     <select id="getTotalrecord" resultType="long">
+
+    <select id="getTotalrecord" resultType="long">
      	select count(*) from material
 			     		where type=#{material_type} 
 					        	  and operation_id=#{operation_id}
      </select>
-     
-     <update id="material_Output">
+
+    <update id="material_Output">
      	update material 
      		set flag_output=1
      		where id=#{id}
      </update>
-     
-     <update id="material_Cancel_Output">
+
+    <update id="material_Cancel_Output">
      	update material 
      		set flag_output=0
      		where id=#{id}
      </update>
-     
-     
-     <select id="material_Cancel_Output_getid" resultType="Long">
+
+
+    <select id="material_Cancel_Output_getid" resultType="Long">
      	select id 
      		from material
      		where flag_output=1 
      		      and operation_id=#{operation_id}
      		      and type=#{type}
      </select>
-     
-     
-     <!--  得到对应operation_id的成果输出-->
-     <select id="getMaterials_Output" resultType="Material">
+
+
+    <!--  得到对应operation_id的成果输出-->
+    <select id="getMaterials_Output" resultType="Material">
         select * from material
         			where flag_output=1
 			        	 and operation_id=#{operation_id} 
 							 order by create_time desc
      </select>
-     
-     <update id="material_delete_Output">
-     	update material 
-     		set flag_output=0
-     		where id in 
-     		<foreach collection="material_ids" item="id"  open="(" separator="," close=")">
-        	  	#{id}
-        	 </foreach>
-     </update>
-         
+
+    <update id="material_delete_Output">
+        update material
+        set flag_output=0
+        where id in
+        <foreach collection="material_ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
 </mapper>

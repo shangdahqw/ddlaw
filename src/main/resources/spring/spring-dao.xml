@@ -1,39 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context 
-        http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--配置加载文件, 将多个配置文件读取到容器中，交给Spring管理  
     
     Spring属性占位符PropertyPlaceholderConfigurer的使用
     -->
 
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-	        <property name="locations">
-	            <list>
-	                <value>classpath*:jdbc.properties</value>
-	                <value>classpath*:redis.properties</value>
-	                
-	            </list>
-	        </property>
-	        <property name="ignoreUnresolvablePlaceholders" value="true" /> 
-	</bean>
-
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:jdbc.properties</value>
+                <value>classpath*:redis.properties</value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
 
 
     <!--2.数据库连接池-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <!--配置连接池属性-->
-        <property name="driverClass" value="${driver}" />
+        <property name="driverClass" value="${driver}"/>
 
         <!-- 基本属性 url、user、password -->
-        <property name="jdbcUrl" value="${url}" />
-        <property name="user" value="${username}" />
-        <property name="password" value="${password}" />
+        <property name="jdbcUrl" value="${url}"/>
+        <property name="user" value="${username}"/>
+        <property name="password" value="${password}"/>
 
         <!--c3p0私有属性-->
         <property name="maxPoolSize" value="${maxPoolSize}"/>
@@ -68,6 +63,6 @@
         <!-- 给出需要扫描的Dao接口-->
         <property name="basePackage" value="com.dangde.dao"/>
     </bean>
-    
+
 
 </beans>

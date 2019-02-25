@@ -1,29 +1,27 @@
 package com.dangde.domain.model;
 
-import java.util.List;
-
 import com.dangde.domain.Judge;
+
+import java.util.List;
 
 public class Judges {
 
-	
-	private List<Judge> judges;
+  private List<Judge> judges;
 
-    public List<Judge> getJudges() {
-        return judges;
-    }
+  public List<Judge> getJudges() {
+    return judges;
+  }
 
-    public void setJudges(List<Judge> Judges) {
-        this.judges = Judges;
-    }
+  public void setJudges(List<Judge> Judges) {
+    this.judges = Judges;
+  }
 
-    public Judges(List<Judge> judges) {
-        super();
-        this.judges = judges;
-    }
+  public Judges(List<Judge> judges) {
+    super();
+    this.judges = judges;
+  }
 
-    public Judges() {
-        super();
-    }
-
+  public Judges() {
+    super();
+  }
 }

@@ -4,16 +4,15 @@
 <mapper namespace="com.dangde.dao.third.User_Friends_Dao">
 
 
-
-     <insert id="insertUser_Friend">
+    <insert id="insertUser_Friend">
          insert into user_friend(user_id,friend_id)
         	values (#{user_id}, #{friend_id})      
         
      </insert>
-     
-     
-     <!-- 查找好友 -->
-     <select id="findFriends" resultType="User">
+
+
+    <!-- 查找好友 -->
+    <select id="findFriends" resultType="User">
 		select uf.friend_id as id ,u.username as username
 		
 			from  user_friend uf 
@@ -21,6 +20,6 @@
 				where uf.user_id = #{userid}    
                            
      </select>
-    
+
 
 </mapper>

@@ -2,22 +2,22 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dangde.dao.TrusteeoppositionDao">
-<!--     目的:为dao接口方法提供sql语句配置
-    即针对dao接口中的方法编写我们的sql语句 -->
+    <!--     目的:为dao接口方法提供sql语句配置
+        即针对dao接口中的方法编写我们的sql语句 -->
 
 
-     <insert id="insertTrusteeopposition" parameterType="Trusteeopposition">
+    <insert id="insertTrusteeopposition" parameterType="Trusteeopposition">
          insert into trusteeopposition(identity,type,person_name,sex,person_birthday,person_adress,person_id_number,company_name,company_address,company_represent)
         	values (#{identity},#{type},#{person_name},#{sex},#{person_birthday},#{person_adress},#{person_id_number},#{company_name},#{company_address},#{company_represent})
                
      </insert>
 
-     <select id="getmaxkey" resultType="Long">
+    <select id="getmaxkey" resultType="Long">
         select max(id) from trusteeopposition
      </select>
-     
-     
-     <select id="getByCaseId" resultType="Trusteeopposition">
+
+
+    <select id="getByCaseId" resultType="Trusteeopposition">
      
             select 
 	            *
@@ -31,5 +31,5 @@
             where ct.case_id = #{caseId}    
      
      </select>
-     
+
 </mapper>

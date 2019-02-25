@@ -2,65 +2,62 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dangde.dao.UserDao">
-<!--     目的:为dao接口方法提供sql语句配置
-    即针对dao接口中的方法编写我们的sql语句 -->
+    <!--     目的:为dao接口方法提供sql语句配置
+        即针对dao接口中的方法编写我们的sql语句 -->
 
 
-     <insert id="insertUser" parameterType="User">
+    <insert id="insertUser" parameterType="User">
          insert into user(username,password,tel,regTime)
         	values (#{username},#{password},#{tel},#{regTime})
                
      </insert>
 
 
-
-<!--注册检验用户是否存在  -->
-     <select id="getUser_exist_ByTel" resultType="String">
+    <!--注册检验用户是否存在  -->
+    <select id="getUserExistByTel" resultType="String">
         select 
 	        u.tel
        		from user u where tel = #{tel}  
      </select>
-<!--根据用户id获取user  -->
-     <select id="getUserById" resultType="User">
+    <!--根据用户id获取user  -->
+    <select id="getUserById" resultType="User">
         select 
 	        *
        		from user u where id = #{user_id}  
      </select>
-     
-<!-- 登入 -->
-	<select id="getUserByTel_Psw" resultType="User">
+
+    <!-- 登入 -->
+    <select id="getUserByTelPsw" resultType="User">
 		select *
 			from user u where tel = #{tel} and password = #{psw}
 	</select>
-    
-    
-<!-- 修改用户信息  -->
-	<update id="updateUser_info"	parameterType="User">
+
+
+    <!-- 修改用户信息  -->
+    <update id="updateUserInfo" parameterType="User">
 		update user 
 			set username=#{username},sex=#{sex},birthday=#{birthday},
 				job=#{job},company_type=#{company_type},company_name=#{company_name} 
 				where id=#{id};	
-	</update> 
-<!-- 修改用户邮箱  -->
-	<update id="updateUser_email" parameterType="User">
+	</update>
+    <!-- 修改用户邮箱  -->
+    <update id="updateUserEmail" parameterType="User">
 		update user 
 			set email=#{email} 
 				where id=#{id};	
-	</update> 	
-<!-- 修改用户密码  -->
-	<update id="updateUser_password" parameterType="User">
+	</update>
+    <!-- 修改用户密码  -->
+    <update id="updateUserPassword" parameterType="User">
 		update user 
 			set password=#{password} 
 				where id=#{id};	
-	</update> 	
-	
-	
-	<select id="getUserName" resultType="String">
+	</update>
+
+
+    <select id="getUserName" resultType="String">
      	select username from user
      		where id=#{id}
-    </select>	
-	
-	
-	
-     
+    </select>
+
+
 </mapper>

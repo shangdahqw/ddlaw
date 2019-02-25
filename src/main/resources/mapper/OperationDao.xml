@@ -2,31 +2,30 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dangde.dao.OperationDao">
-<!--     目的:为dao接口方法提供sql语句配置
-    即针对dao接口中的方法编写我们的sql语句 -->
+    <!--     目的:为dao接口方法提供sql语句配置
+        即针对dao接口中的方法编写我们的sql语句 -->
 
 
-     <insert id="insertOperation" parameterType="Operation">
+    <insert id="insertOperation" parameterType="Operation">
          insert into Operation(name,time,case_id,type)
         	values (#{name},#{time},#{case_id},#{type})
                
      </insert>
 
-     <select id="getmaxkey" resultType="Long">
+    <select id="getmaxkey" resultType="Long">
         select max(id) from operation
      </select>
-     
-     <select id="getOperationBycaseId" resultType="Operation">
+
+    <select id="getOperationBycaseId" resultType="Operation">
         select *
        		from operation  where case_id = #{caseId}  
      </select>
-     
-     <select id="getById" resultType="Operation">
+
+    <select id="getById" resultType="Operation">
         select *
        		from operation o 
      		where o.id=#{id}
-     </select>          
-          	
-     		
-     
+     </select>
+
+
 </mapper>
